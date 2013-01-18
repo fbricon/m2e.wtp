@@ -32,7 +32,7 @@ import org.eclipse.jpt.jpa.core.internal.facet.JpaFacetDataModelProperties;
 import org.eclipse.jpt.jpa.core.internal.facet.JpaFacetInstallDataModelProperties;
 import org.eclipse.jpt.jpa.core.internal.facet.JpaFacetInstallDataModelProvider;
 import org.eclipse.jpt.jpa.core.internal.resource.persistence.PersistenceXmlResourceProvider;
-import org.eclipse.jpt.jpa.core.platform.JpaPlatformDescription;
+import org.eclipse.jpt.jpa.core.platform.JpaPlatformConfig;
 import org.eclipse.jpt.jpa.core.platform.JpaPlatformManager;
 import org.eclipse.jpt.jpa.core.resource.persistence.XmlPersistenceUnit;
 import org.eclipse.jst.common.project.facet.core.JavaFacet;
@@ -117,7 +117,7 @@ public class JpaProjectConfigurator extends AbstractProjectConfigurator {
 		 
 		IProjectFacetVersion version = JptUtils.getVersion(jpaXmlResource);
 		
-		JpaPlatformDescription platform = getPlatform(jpaXmlResource, version);
+		JpaPlatformConfig platform = getPlatform(jpaXmlResource, version);
 		
 		IDataModel dataModel = getDataModel(facetedProject, version, platform);
 
@@ -130,7 +130,7 @@ public class JpaProjectConfigurator extends AbstractProjectConfigurator {
 	}
 
 	
-	private JpaPlatformDescription getPlatform(JptXmlResource persistenceXml, IProjectFacetVersion facetVersion) {
+	private JpaPlatformConfig getPlatform(JptXmlResource persistenceXml, IProjectFacetVersion facetVersion) {
 		XmlPersistenceUnit xmlPersistenceUnit = JptUtils.getFirstXmlPersistenceUnit(persistenceXml);
 		if (xmlPersistenceUnit == null) {
 			return null;
@@ -139,7 +139,7 @@ public class JpaProjectConfigurator extends AbstractProjectConfigurator {
 		String platformType = identifierManager.identify(xmlPersistenceUnit);
 		JpaPlatformManager platformManager = getPlatformManager();
 		if (platformType != null) {
-			for (JpaPlatformDescription platform : platformManager.getJpaPlatformDescriptions(facetVersion)) {
+			for (JpaPlatformConfig platform : platformManager.getJpaPlatformConfigs(facetVersion)) {
 				if (platform.getId().contains(platformType)) {
 					return platform;
 				}
@@ -157,12 +157,12 @@ public class JpaProjectConfigurator extends AbstractProjectConfigurator {
 
 	private IDataModel getDataModel(IFacetedProject facetedProject,
 									IProjectFacetVersion version, 
-									JpaPlatformDescription platform) {
+									JpaPlatformConfig platformConfig) {
 		
 		IDataModel dm = DataModelFactory.createDataModel(new JpaFacetInstallDataModelProvider()); 
 
 		dm.setProperty(IFacetDataModelProperties.FACET_VERSION_STR, version.getVersionString()); 
-		dm.setProperty(JpaFacetDataModelProperties.PLATFORM, platform); 
+		dm.setProperty(JpaFacetDataModelProperties.PLATFORM, platformConfig); 
 		dm.setProperty(JpaFacetInstallDataModelProperties.CREATE_ORM_XML, false);
 		dm.setProperty(JpaFacetInstallDataModelProperties.DISCOVER_ANNOTATED_CLASSES, true);
 		

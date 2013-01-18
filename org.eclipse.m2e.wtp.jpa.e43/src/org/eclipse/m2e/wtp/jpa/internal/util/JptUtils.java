@@ -14,12 +14,14 @@ import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jpt.common.core.internal.resource.ResourceLocatorManager;
+import org.eclipse.jpt.common.core.JptWorkspace;
 import org.eclipse.jpt.common.core.resource.ResourceLocator;
+import org.eclipse.jpt.common.core.resource.ResourceLocatorManager;
 import org.eclipse.jpt.common.core.resource.xml.JptXmlResource;
 import org.eclipse.jpt.jpa.core.JpaProject;
 import org.eclipse.jpt.jpa.core.resource.persistence.XmlPersistence;
@@ -96,8 +98,10 @@ public class JptUtils {
 	 * Returns the {@link ResourceLocator} for a given project.
 	 */
 	public static ResourceLocator getResourceLocator(IProject project) {
-	  ResourceLocatorManager resourceLocatorManager = ResourceLocatorManager.instance();
-	  return resourceLocatorManager.getResourceLocator(project);
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		JptWorkspace jptWorkspace = (JptWorkspace) workspace.getAdapter(JptWorkspace.class);
+		ResourceLocatorManager rlm = jptWorkspace.getResourceLocatorManager();
+		return (rlm==null)?null:rlm.getResourceLocator(project);
 	}
 	
 }
