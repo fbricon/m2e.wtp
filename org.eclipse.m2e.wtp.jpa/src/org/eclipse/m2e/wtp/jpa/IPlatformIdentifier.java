@@ -10,7 +10,6 @@
  ************************************************************************************/
 package org.eclipse.m2e.wtp.jpa;
 
-import org.eclipse.jpt.jpa.core.platform.JpaPlatformDescription;
 import org.eclipse.jpt.jpa.core.resource.persistence.XmlPersistenceUnit;
 
 /**

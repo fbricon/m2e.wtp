@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.m2e.wtp.jpa.feature"
+      id="org.eclipse.m2e.wtp.jpa.e42.feature"
       label="%featureName"
       version="0.17.0.qualifier"
       provider-name="%providerName"
-      plugin="org.eclipse.m2e.wtp.jpa">
+      plugin="org.eclipse.m2e.wtp.jpa.e42">
    <install-handler/>
 
    <description>
@@ -19,12 +19,17 @@
       %license
    </license>
 
-   <includes
-         id="org.eclipse.m2e.wtp.jpa.e42.feature"
-         version="0.0.0"
-         optional="true"/>
-
    <requires>
+      <!--
+      <import plugin="org.eclipse.wst.common.frameworks"/>
+      <import plugin="org.eclipse.wst.common.modulecore"/>
+      <import plugin="org.eclipse.wst.common.project.facet.core"/>
+      <import plugin="org.eclipse.jst.common.frameworks"/>
+      <import plugin="org.eclipse.jst.common.project.facet.core"/>
+      <import plugin="org.eclipse.jst.j2ee.web"/>
+      <import plugin="org.eclipse.jst.j2ee"/>
+      <import plugin="org.eclipse.jst.j2ee.core"/>
+      -->
       <import feature="org.eclipse.platform" version="3.6.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.rcp" version="3.6.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.jdt" version="3.6.0" match="greaterOrEqual"/>
@@ -36,7 +41,7 @@
    </requires>
 
    <plugin
-         id="org.eclipse.m2e.wtp.jpa"
+         id="org.eclipse.m2e.wtp.jpa.e42"
          download-size="0"
          install-size="0"
          version="0.0.0"

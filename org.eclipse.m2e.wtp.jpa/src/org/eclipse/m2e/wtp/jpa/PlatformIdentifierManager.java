@@ -13,7 +13,6 @@ package org.eclipse.m2e.wtp.jpa;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.jpt.jpa.core.platform.JpaPlatformDescription;
 import org.eclipse.jpt.jpa.core.resource.persistence.XmlPersistenceUnit;
 import org.eclipse.jpt.jpa.core.resource.persistence.XmlProperty;
 

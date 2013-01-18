@@ -71,15 +71,25 @@
     <module>org.eclipse.m2e.wtp.jaxrs.feature</module>
     <module>org.eclipse.m2e.wtp.jsf</module>
     <module>org.eclipse.m2e.wtp.jsf.feature</module>    
-    <!-- disabled as doesn't compile in Kepler 
+    <module>org.eclipse.m2e.wtp.jpa.e42</module>
+    <module>org.eclipse.m2e.wtp.jpa.e42.feature</module>
+    <module>org.eclipse.m2e.wtp.jpa.e43</module>
+    <module>org.eclipse.m2e.wtp.jpa.e43.feature</module>    
     <module>org.eclipse.m2e.wtp.jpa</module>
     <module>org.eclipse.m2e.wtp.jpa.feature</module>
-    -->
     <module>org.eclipse.m2e.wtp.sdk.feature</module>
     <module>org.eclipse.m2e.wtp.site</module>
   </modules>
     
   <repositories>
+
+  <repository>
+      <id>webtools-juno</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/webtools/repository/juno</url>
+    </repository>
+
+    
     <repository>
       <id>m2e-core</id>
       <layout>p2</layout>
