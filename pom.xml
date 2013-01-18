@@ -86,10 +86,8 @@
   <repository>
       <id>webtools-juno</id>
       <layout>p2</layout>
-      <url>http://download.eclipse.org/webtools/repository/juno</url>
+      <url>http://download.eclipse.org/webtools/downloads/drops/R3.4.1//R-3.4.1-20120917174803/repository/</url>
     </repository>
-
-    
     <repository>
       <id>m2e-core</id>
       <layout>p2</layout>
