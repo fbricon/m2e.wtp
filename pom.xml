@@ -71,10 +71,13 @@
     <module>org.eclipse.m2e.wtp.jaxrs.feature</module>
     <module>org.eclipse.m2e.wtp.jsf</module>
     <module>org.eclipse.m2e.wtp.jsf.feature</module>    
-    <module>org.eclipse.m2e.wtp.jpa.e42</module>
-    <module>org.eclipse.m2e.wtp.jpa.e42.feature</module>
+
     <module>org.eclipse.m2e.wtp.jpa.e43</module>
     <module>org.eclipse.m2e.wtp.jpa.e43.feature</module>    
+
+    <module>org.eclipse.m2e.wtp.jpa.e42</module>
+    <module>org.eclipse.m2e.wtp.jpa.e42.feature</module>
+    
     <module>org.eclipse.m2e.wtp.jpa</module>
     <module>org.eclipse.m2e.wtp.jpa.feature</module>
     <module>org.eclipse.m2e.wtp.sdk.feature</module>
@@ -138,14 +141,6 @@
         <version>${tycho-version}</version>
         <configuration>
           <format>yyyyMMdd-HHmm</format>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-compiler-plugin</artifactId>
-        <version>${tycho-version}</version>
-        <configuration>
-          <fork>true</fork>
         </configuration>
       </plugin>
       <plugin>
